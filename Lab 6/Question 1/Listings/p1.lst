@@ -1,0 +1,125 @@
+A51 MACRO ASSEMBLER  P1                                                                   02/09/2021 21:41:28 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\p1.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE ..\..\ee337 lab 3\Question 2\p1.asm SET(SMALL) DEBUG PRINT(.\Listings\p
+                      1.lst) OBJECT(.\Objects\p1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1         org 00h
+                       2                     
+0000 C294              3             clr p1.4
+0002 C295              4             clr p1.5
+0004 C296              5             clr p1.6
+0006 C297              6             clr p1.7
+                       7             
+0008 E590              8              MOV A,P1
+000A B4010A            9          CJNE A,#01,Loop1
+000D                  10               Again: 
+000D D294             11                         SETB P1.4
+000F 1139             12                             ACALL DELAY1 
+0011 C294             13                             CLR P1.4
+0013 1146             14                             ACALL DELAY3
+0015 80F6             15                             SJMP AGAIN
+                      16                             
+0017                  17              loop1: 
+0017 B4020A           18                     CJNE A,#02,toggle
+001A D296             19                             SETB P1.6
+001C 1153             20                             ACALL DELAY2 
+001E C296             21                             CLR P1.6
+0020 1153             22                             ACALL DELAY2
+0022 80F3             23                             SJMP loop1
+                      24                             
+                      25                             
+                      26                             
+0024                  27         toggle: 
+0024 B40339           28                     CJNE A,#03,endloop
+0027 D294             29                         SETB P1.4
+0029 1139             30                             ACALL DELAY1 
+002B C294             31                             CLR P1.4
+002D 1146             32                             ACALL DELAY3
+                      33                             
+002F D296             34                         SETB P1.6
+0031 1153             35                             ACALL DELAY2 
+0033 C296             36                             CLR P1.6
+0035 1153             37                             ACALL DELAY2
+0037 80EB             38                             SJMP toggle
+                      39                             
+0039                  40                             DELAY1: 
+                      41                             
+0039 780A             42                         MOV R0,#10
+003B                  43                             HERE3: 
+003B 79C8             44                          MOV R1,#200
+003D                  45                             HERE2: 
+003D 7AFA             46                         MOV R2,#250
+003F                  47                             HERE: 
+003F DAFE             48                         DJNZ R2, HERE
+0041 D9FA             49                             DJNZ R1, HERE2
+0043 D8F6             50                             DJNZ R0, HERE3
+0045 22               51                             ret
+                      52                             
+0046                  53                             DELAY3: 
+                      54                             
+0046 781E             55                         MOV R0,#30
+0048                  56                             HERE9: 
+0048 79C8             57                          MOV R1,#200
+A51 MACRO ASSEMBLER  P1                                                                   02/09/2021 21:41:28 PAGE     2
+
+004A                  58                             HERE8: 
+004A 7AFA             59                         MOV R2,#250
+004C                  60                             HERE7: 
+004C DAFE             61                         DJNZ R2, HERE7
+004E D9FA             62                             DJNZ R1, HERE8
+0050 D8F6             63                             DJNZ R0, HERE9
+0052 22               64                             ret
+                      65                             
+0053                  66                             DELAY2: 
+                      67                             
+0053 7814             68                         MOV R0,#20
+0055                  69                             HERE6: 
+0055 79C8             70                         MOV R1,#200
+0057                  71                             HERE5: 
+0057 7AFA             72                         MOV R2,#250
+0059                  73                             HERE4: 
+0059 DAFE             74                         DJNZ R2, HERE4
+005B D9FA             75                             DJNZ R1, HERE5
+005D D8F6             76                             DJNZ R0, HERE6
+005F 22               77                             ret
+                      78                             
+0060                  79                             endloop:
+0060 80FE             80                             FIN: SJMP FIN
+                      81                             END
+A51 MACRO ASSEMBLER  P1                                                                   02/09/2021 21:41:28 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   000DH   A   
+DELAY1 . . . . . .  C ADDR   0039H   A   
+DELAY2 . . . . . .  C ADDR   0053H   A   
+DELAY3 . . . . . .  C ADDR   0046H   A   
+ENDLOOP. . . . . .  C ADDR   0060H   A   
+FIN. . . . . . . .  C ADDR   0060H   A   
+HERE . . . . . . .  C ADDR   003FH   A   
+HERE2. . . . . . .  C ADDR   003DH   A   
+HERE3. . . . . . .  C ADDR   003BH   A   
+HERE4. . . . . . .  C ADDR   0059H   A   
+HERE5. . . . . . .  C ADDR   0057H   A   
+HERE6. . . . . . .  C ADDR   0055H   A   
+HERE7. . . . . . .  C ADDR   004CH   A   
+HERE8. . . . . . .  C ADDR   004AH   A   
+HERE9. . . . . . .  C ADDR   0048H   A   
+LOOP1. . . . . . .  C ADDR   0017H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TOGGLE . . . . . .  C ADDR   0024H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

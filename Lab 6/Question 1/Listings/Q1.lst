@@ -1,0 +1,87 @@
+A51 MACRO ASSEMBLER  Q1                                                                   03/15/2021 16:08:23 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\Q1.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Q1.asm SET(SMALL) DEBUG PRINT(.\Listings\Q1.lst) OBJECT(.\Objects\Q1.ob
+                      j) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1           
+0000                   2               org 00h
+0000 020030            3               ljmp start
+001B                   4               org 001BH
+001B 0C                5               INC R4 
+001C BC400B            6               CJNE R4,#64,loop11
+001F 7C00              7               mov r4,#00
+0021 B9ED04            8               CJNE R1,#237,LOOP12
+0024 79EF              9               mov R1,#239
+0026 8002             10               sjmp loop11
+0028                  11               loop12:
+0028 79ED             12               Mov R1,#237
+002A                  13               loop11:
+002A 32               14               RETI
+0030                  15                org 0030h
+0030                  16           start:
+0030 7590FF           17                     Mov P1,#0FFH
+0033 79ED             18                     Mov R1,#237
+0035 758911           19                     MOV TMOD,#11H 
+0038 75A888           20                             Mov IE,#10001000B
+003B C294             21             Loop1:  CLR P1.4
+003D 1149             22                 Acall Delay
+003F D294             23                             SETB P1.4
+0041 1149             24                             Acall Delay
+0043 C294             25                             CLR P1.4
+0045 D28E             26                         SETB TR1
+0047 80F2             27                             SJMP LOOP1                      
+0049                  28     DELAY:
+0049 898C             29            MOV TH0,R1
+004B 758A00           30            MOV TL0,#000H 
+004E D28C             31            SETB TR0 
+0050 308DFD           32     HERE: JNB TF0,HERE 
+0053 C28C             33           CLR TR0 
+0055 C28D             34           CLR TF0 
+0057 22               35           RET
+                      36               
+0058                  37     DELAY1:
+                      38            
+0058 898C             39            MOV TH0,R1
+005A 758AFF           40            MOV TL0,#0FFH
+005D D28C             41            SETB TR0 
+005F 308DFD           42     HERE1: JNB TF0,HERE1
+0062 C28C             43           CLR TR0 
+0064 C28D             44           CLR TF0 
+0066 22               45           RET         
+                      46               
+                      47               END
+A51 MACRO ASSEMBLER  Q1                                                                   03/15/2021 16:08:23 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   0049H   A   
+DELAY1 . . . . . .  C ADDR   0058H   A   
+HERE . . . . . . .  C ADDR   0050H   A   
+HERE1. . . . . . .  C ADDR   005FH   A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+LOOP1. . . . . . .  C ADDR   003BH   A   
+LOOP11 . . . . . .  C ADDR   002AH   A   
+LOOP12 . . . . . .  C ADDR   0028H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+START. . . . . . .  C ADDR   0030H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,103 @@
+A51 MACRO ASSEMBLER  LED                                                                  02/08/2021 00:41:12 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\led.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE led.asm SET(SMALL) DEBUG PRINT(.\Listings\led.lst) OBJECT(.\Objects\led
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1         org 00h
+                       2                     
+0000 C294              3             clr p1.4
+0002 C295              4             clr p1.5
+0004 C296              5             clr p1.6
+0006 C297              6             clr p1.7
+                       7             
+0008 E590              8              MOV A,P1
+000A B4010A            9          CJNE A,#01,Loop1
+000D                  10               Again: 
+000D D294             11                         SETB P1.4
+000F 1117             12                             ACALL DELAY1 
+0011 C294             13                             CLR P1.4
+0013 1117             14                             ACALL DELAY1
+0015 80F6             15                             SJMP AGAIN
+                      16                             
+                      17             
+0017                  18             Loop1:
+0017                  19                             DELAY1: 
+                      20                             
+0017 780A             21                         MOV R0,#10
+0019                  22                             HERE3: 
+0019 79C8             23                          MOV R1,#200
+001B                  24                             HERE2: 
+001B 7AFA             25                         MOV R2,#250
+001D                  26                             HERE: 
+001D DAFE             27                         DJNZ R2, HERE
+001F D9FA             28                             DJNZ R1, HERE2
+0021 D8F6             29                             DJNZ R0, HERE3
+0023 22               30                             ret
+                      31                             
+0024                  32                             DELAY3: 
+                      33                             
+0024 781E             34                         MOV R0,#30
+0026                  35                             HERE9: 
+0026 79C8             36                          MOV R1,#200
+0028                  37                             HERE8: 
+0028 7AFA             38                         MOV R2,#250
+002A                  39                             HERE7: 
+002A DAFE             40                         DJNZ R2, HERE7
+002C D9FA             41                             DJNZ R1, HERE8
+002E D8F6             42                             DJNZ R0, HERE9
+0030 22               43                             ret
+                      44                             
+0031                  45                             DELAY2: 
+                      46                             
+0031 7814             47                         MOV R0,#20
+0033                  48                             HERE6: 
+0033 79C8             49                         MOV R1,#200
+0035                  50                             HERE5: 
+0035 7AFA             51                         MOV R2,#250
+0037                  52                             HERE4: 
+0037 DAFE             53                         DJNZ R2, HERE4
+0039 D9FA             54                             DJNZ R1, HERE5
+003B D8F6             55                             DJNZ R0, HERE6
+003D 22               56                             ret
+                      57                             
+A51 MACRO ASSEMBLER  LED                                                                  02/08/2021 00:41:12 PAGE     2
+
+003E                  58                             endloop:
+003E 80FE             59                             FIN: SJMP FIN
+                      60                             END
+A51 MACRO ASSEMBLER  LED                                                                  02/08/2021 00:41:12 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   000DH   A   
+DELAY1 . . . . . .  C ADDR   0017H   A   
+DELAY2 . . . . . .  C ADDR   0031H   A   
+DELAY3 . . . . . .  C ADDR   0024H   A   
+ENDLOOP. . . . . .  C ADDR   003EH   A   
+FIN. . . . . . . .  C ADDR   003EH   A   
+HERE . . . . . . .  C ADDR   001DH   A   
+HERE2. . . . . . .  C ADDR   001BH   A   
+HERE3. . . . . . .  C ADDR   0019H   A   
+HERE4. . . . . . .  C ADDR   0037H   A   
+HERE5. . . . . . .  C ADDR   0035H   A   
+HERE6. . . . . . .  C ADDR   0033H   A   
+HERE7. . . . . . .  C ADDR   002AH   A   
+HERE8. . . . . . .  C ADDR   0028H   A   
+HERE9. . . . . . .  C ADDR   0026H   A   
+LOOP1. . . . . . .  C ADDR   0017H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

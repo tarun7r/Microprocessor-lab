@@ -1,0 +1,30 @@
+      
+	  org 00h
+	  ljmp start
+      ORG 0100H 
+	  MOV R1,#100
+      start:
+            MOV P1,#0FFH
+            SETB P1.4
+			SETB P1.5
+			SETB P1.6
+			SETB P1.7
+			Acall Delay
+			CLR P1.4
+			CLR P1.5
+			CLR P1.6
+			CLR P1.7
+			Acall Delay
+			Acall start
+
+DELAY:
+       MOV TMOD,#00000001B 
+       MOV TH0,#215
+       MOV TL0,#000H 
+       SETB TR0 
+HERE: JNB TF0,HERE 
+      CLR TR0 
+      CLR TF0 
+	  Djnz R1,Delay
+      RET
+	  END

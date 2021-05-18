@@ -1,0 +1,106 @@
+A51 MACRO ASSEMBLER  Q2                                                                   02/15/2021 14:02:15 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\Q2.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE ..\..\ee337 lab 3\Question 2\Q2.asm SET(SMALL) DEBUG PRINT(.\Listings\Q
+                      2.lst) OBJECT(.\Objects\Q2.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                 ORG 00h
+0000 020100            2                         ljmp start 
+0100                   3                 ORG 0100H
+                       4                                     
+0100                   5          start:  
+0100 7590FF            6                     MOV P1,#0FFH
+0103 D294              7                             SETB P1.4
+0105 D295              8                             SETB P1.5
+0107 D296              9                             SETB P1.6
+0109 D297             10                             SETB P1.7
+                      11                             
+010B 7832             12                             MOV R0,#50
+010D                  13                             HERE6: 
+010D 79C8             14                          MOV R1,#200
+010F                  15                             HERE5: 
+010F 7AFA             16                         MOV R2,#250
+0111                  17                             HERE4: 
+0111 DAFE             18                         DJNZ R2, HERE4
+0113 D9FA             19                             DJNZ R1, HERE5
+0115 D8F6             20                             DJNZ R0, HERE6
+                      21                             
+0117 C294             22                             CLR P1.4
+0119 C295             23                             CLR P1.5
+011B C296             24                             CLR P1.6
+011D C297             25                             CLR P1.7
+                      26                     
+011F E590             27                         MOV A,P1
+0121 FB               28                             MOV R3,A
+                      29                             
+0122                  30               Again: 
+                      31               
+0122 C294             32                         CLR P1.4
+0124 C295             33                             CLR P1.5
+0126 C296             34                             CLR P1.6
+0128 C297             35                             CLR P1.7
+012A 780A             36                             MOV R0,#10
+012C                  37                             L3: 
+012C 79C8             38                          MOV R1,#200
+012E                  39                             L2: 
+012E 7AFA             40                         MOV R2,#250
+0130                  41                             L1: 
+0130 DAFE             42                         DJNZ R2, L1
+0132 D9FA             43                             DJNZ R1, L2
+0134 D8F6             44                             DJNZ R0, L3
+                      45                             
+0136 D294             46                             SETB P1.4
+0138 D295             47                             SETB P1.5
+013A D296             48                             SETB P1.6
+013C D297             49                             SETB P1.7
+                      50                             
+013E 780A             51                 MOV R0,#10
+0140                  52                             HERE3: 
+0140 79C8             53                          MOV R1,#200
+0142                  54                             HERE2: 
+0142 7AFA             55                         MOV R2,#250
+0144                  56                             HERE: 
+0144 DAFE             57                         DJNZ R2, HERE
+A51 MACRO ASSEMBLER  Q2                                                                   02/15/2021 14:02:15 PAGE     2
+
+0146 D9FA             58                             DJNZ R1, HERE2
+0148 D8F6             59                             DJNZ R0, HERE3
+                      60                             
+014A DBD6             61                         DJNZ R3,Again  
+                      62                             
+                      63                             
+014C                  64                             endloop:
+014C 80FE             65                     FIN: SJMP FIN
+                      66                             END
+A51 MACRO ASSEMBLER  Q2                                                                   02/15/2021 14:02:15 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0122H   A   
+ENDLOOP. . . . . .  C ADDR   014CH   A   
+FIN. . . . . . . .  C ADDR   014CH   A   
+HERE . . . . . . .  C ADDR   0144H   A   
+HERE2. . . . . . .  C ADDR   0142H   A   
+HERE3. . . . . . .  C ADDR   0140H   A   
+HERE4. . . . . . .  C ADDR   0111H   A   
+HERE5. . . . . . .  C ADDR   010FH   A   
+HERE6. . . . . . .  C ADDR   010DH   A   
+L1 . . . . . . . .  C ADDR   0130H   A   
+L2 . . . . . . . .  C ADDR   012EH   A   
+L3 . . . . . . . .  C ADDR   012CH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+START. . . . . . .  C ADDR   0100H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
