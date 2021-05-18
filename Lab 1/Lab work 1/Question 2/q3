@@ -1,0 +1,11 @@
+MOV A, #0E6H
+MOV R0,#0F0H
+MOV B,00H
+ADD A,B
+MOV @R0,A
+JNC cy_check
+ADD A,B
+MOV 0F0H,A
+JMP stop
+cy_check:MOV 0F0H,@R0
+stop:JMP stop

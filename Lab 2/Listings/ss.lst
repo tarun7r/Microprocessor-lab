@@ -1,0 +1,46 @@
+A51 MACRO ASSEMBLER  SS                                                                   01/27/2021 08:05:14 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\ss.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE ..\ss.asm SET(SMALL) DEBUG PRINT(.\Listings\ss.lst) OBJECT(.\Objects\ss
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000 C2D3              1     CLR PSW.3
+0002 C2D4              2     CLR PSW.4
+0004 D3                3     SETB C
+                       4     
+0005 78BA              5     MOV R0, #0BAH
+0007 79E7              6     MOV R1, #0E7H
+0009 7A23              7     MOV R2, #23H
+000B 7B16              8     MOV R3, #16H
+000D 748D              9     MOV A, #8DH
+                      10     
+000F D2D3             11     SETB PSW.3
+0011 C002             12     PUSH 02H
+0013 C003             13     PUSH 03H
+                      14     
+0015 98               15     SUBB A, R0
+0016 29               16     ADD A, R1
+0017 F9               17     MOV R1, A
+                      18     
+0018 D002             19     POP 02H
+001A D003             20     POP 03H
+*** WARNING #A41 IN 20 (..\ss.asm, LINE 20): MISSING 'END' STATEMENT
+A51 MACRO ASSEMBLER  SS                                                                   01/27/2021 08:05:14 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+PSW. . . . . . . .  D ADDR   00D0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S)

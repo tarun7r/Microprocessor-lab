@@ -1,0 +1,67 @@
+A51 MACRO ASSEMBLER  QQQ                                                                  01/27/2021 02:34:18 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\qqq.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE qqq.asm SET(SMALL) DEBUG PRINT(.\Listings\qqq.lst) OBJECT(.\Objects\qqq
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+                       2     
+                       3     
+0000 802E              4     SJMP 30H
+0030                   5     ORG 30H
+                       6             
+0030 900050            7     MOV DPTR,#50H
+0033 E0                8     MOVX A,@DPTR
+0034 75F00A            9     MOV B,#10
+0037 84               10     DIV AB
+0038 A3               11     INC DPTR
+0039 C5F0             12     XCH A,B
+003B FC               13     MOV R4,A
+003C F0               14     MOVX @DPTR,A
+003D C5F0             15     XCH A,B
+003F 75F00A           16     MOV B,#10
+0042 84               17     DIV AB
+0043 A3               18     INC DPTR
+0044 C5F0             19     XCH A,B
+0046 F0               20     MOVX @DPTR,A
+0047 FB               21     MOV R3,A
+0048 C5F0             22     XCH A,B
+004A A3               23     INC DPTR
+004B F552             24     MOV 52H,A
+004D F0               25     MOVX @DPTR,A
+                      26     
+                      27     
+                      28     
+004E 7910             29     MOV R1,#10H
+                      30     
+0050 EB               31     MOV A, R3
+0051                  32     LOOP: 
+0051 2B               33     ADD A,R3
+0052 D9FD             34     DJNZ R1, LOOP
+0054 9B               35     SUBB A, R3
+0055 2C               36     ADD A,R4 
+0056 F553             37     MOV 53H,A
+                      38     
+0058 80FE             39     HERE: SJMP HERE
+                      40     END
+A51 MACRO ASSEMBLER  QQQ                                                                  01/27/2021 02:34:18 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+HERE . . . . . . .  C ADDR   0058H   A   
+LOOP . . . . . . .  C ADDR   0051H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,50 @@
+A51 MACRO ASSEMBLER  Q1                                                                   01/27/2021 00:00:28 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\Q1.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Q1.asm SET(SMALL) DEBUG PRINT(.\Listings\Q1.lst) OBJECT(.\Objects\Q1.ob
+                      j) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             
+0000                   2          ORG 0H
+0000 020100            3          LJMP MAIN
+0100                   4          ORG 100H
+0100                   5     MAIN:
+0100 7C08              6          MOV R4, #08H  ; Counter
+0102 75700A            7          MOV 70H,#10   ;Starting Address
+0105 E570              8              MOV A,70H  
+                       9              
+                      10                      
+0107 13               11             LOOP2: RRC A 
+0108 5003             12             JNC LOOP1
+010A 0A               13             INC R2
+010B 8001             14             JMP NEXT
+010D 0B               15             LOOP1: INC R3
+010E DCF7             16             NEXT: DJNZ R4, LOOP2
+0110 8A71             17                MOV 71H, R2
+0112 8B72             18            Mov 72H, R3
+                      19                
+0114 80FE             20             FIN: SJMP FIN
+                      21             END
+A51 MACRO ASSEMBLER  Q1                                                                   01/27/2021 00:00:28 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+FIN. . . . . . . .  C ADDR   0114H   A   
+LOOP1. . . . . . .  C ADDR   010DH   A   
+LOOP2. . . . . . .  C ADDR   0107H   A   
+MAIN . . . . . . .  C ADDR   0100H   A   
+NEXT . . . . . . .  C ADDR   010EH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

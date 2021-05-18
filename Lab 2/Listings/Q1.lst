@@ -1,0 +1,59 @@
+A51 MACRO ASSEMBLER  Q1                                                                   04/27/2021 16:40:10 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\Q1.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Q1.asm SET(SMALL) DEBUG PRINT(.\Listings\Q1.lst) OBJECT(.\Objects\Q1.ob
+                      j) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+0000 7410              2     MOV A, #10H
+                       3     
+0002 C0E0              4     L1: PUSH ACC
+                       5     
+0004 D5E0FB            6     DJNZ ACC, L1
+                       7     
+0007 D2D3              8     SETB PSW.3
+                       9     
+0009 E6               10     MOV A, @R0
+                      11     
+000A 29               12     L2: ADD A, R1
+                      13     
+000B 87F0             14     MOV B, @R1
+                      15     
+000D C4               16     SWAP A
+                      17     
+000E A4               18     MUL AB
+                      19     
+000F 2581             20     L3: ADD A,SP
+                      21     
+0011 D4               22     DA A
+                      23     
+0012 25F0             24     ADD A, B
+                      25     
+0014 80FE             26     HERE: SJMP HERE
+*** WARNING #A41 IN 26 (Q1.asm, LINE 26): MISSING 'END' STATEMENT
+A51 MACRO ASSEMBLER  Q1                                                                   04/27/2021 16:40:10 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+HERE . . . . . . .  C ADDR   0014H   A   
+L1 . . . . . . . .  C ADDR   0002H   A   
+L2 . . . . . . . .  C ADDR   000AH   A   
+L3 . . . . . . . .  C ADDR   000FH   A   
+PSW. . . . . . . .  D ADDR   00D0H   A   
+SP . . . . . . . .  D ADDR   0081H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S)

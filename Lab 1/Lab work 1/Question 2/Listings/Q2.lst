@@ -1,0 +1,101 @@
+A51 MACRO ASSEMBLER  Q2                                                                   01/26/2021 23:53:20 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\Q2.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Q2.asm SET(SMALL) DEBUG PRINT(.\Listings\Q2.lst) OBJECT(.\Objects\Q2.ob
+                      j) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1      
+0000                   2          ORG 0H
+0000 020100            3          LJMP MAIN
+0100                   4          ORG 100H
+0100                   5              MAIN:
+                       6              
+0100 020123            7              LJMP TEST
+                       8             
+0103                   9          Sort:      
+                      10             
+0103 7920             11              MOV R1,#20H      ;counter
+0105 7840             12              MOV R0,#40H      ;Starting Address
+                      13              
+0107                  14              LOOP1: 
+                      15              
+0107 E570             16              MOV A,70H
+0109 C3               17              CLR C            ;Clear carry for subtraction
+010A 96               18              SUBB A, @R0 
+010B 5008             19              JNC LOOP2        ;if If A>@R0 goto loop2
+010D 857071           20              MOV 71H, 70H
+0110 8670             21              MOV 70H, @R0
+0112 02011D           22              LJMP AHEAD
+                      23              
+0115                  24              LOOP2: 
+                      25              
+0115 E571             26              MOV A,71H
+0117 C3               27          CLR C            ;Clear carry for subtraction
+0118 96               28          SUBB A,@R0
+0119 5002             29              JNC AHEAD        ;if If A>@R0 goto loop2
+011B 8671             30              MOV 71H,@R0
+                      31              
+011D                  32              AHEAD: 
+                      33             
+011D 08               34              INC R0
+011E D9E7             35              DJNZ R1, LOOP1
+                      36              
+0120 80FE             37              FIN: SJMP FIN
+                      38                             
+                      39     
+0122 22               40         RET
+                      41     
+                      42     
+0123                  43             TEST:
+                      44             
+0123 75407F           45     MOV 40H, #7FH
+0126 75417E           46     MOV 41H, #7EH
+0129 75427D           47     MOV 42H, #7DH
+012C 75437C           48     MOV 43H, #7CH          ;Test Cases or Input values
+012F 75447B           49     MOV 44H, #7BH
+0132 75457A           50     MOV 45H, #7AH
+0135 754679           51     MOV 46H, #79H
+0138 754778           52     MOV 47H, #78H
+013B 754877           53     MOV 48H, #77H
+013E 754976           54     MOV 49H, #76H
+0141 754A75           55     MOV 4AH, #75H
+0144 754B74           56     MOV 4BH, #74H
+0147 754C73           57     MOV 4CH, #73H
+A51 MACRO ASSEMBLER  Q2                                                                   01/26/2021 23:53:20 PAGE     2
+
+014A 754D72           58     MOV 4DH, #72H
+014D 754E71           59     MOV 4EH, #71H
+0150 754F70           60     MOV 4FH, #70H
+0153 75506F           61     MOV 50H, #6FH
+0156 75516E           62     MOV 51H, #6EH
+0159 75526D           63     MOV 52H, #6DH
+015C 75536C           64     MOV 53H, #6CH
+                      65             
+015F 3103             66             ACALL SORT
+                      67     
+                      68     END     
+A51 MACRO ASSEMBLER  Q2                                                                   01/26/2021 23:53:20 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AHEAD. . . . . . .  C ADDR   011DH   A   
+FIN. . . . . . . .  C ADDR   0120H   A   
+LOOP1. . . . . . .  C ADDR   0107H   A   
+LOOP2. . . . . . .  C ADDR   0115H   A   
+MAIN . . . . . . .  C ADDR   0100H   A   
+SORT . . . . . . .  C ADDR   0103H   A   
+TEST . . . . . . .  C ADDR   0123H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

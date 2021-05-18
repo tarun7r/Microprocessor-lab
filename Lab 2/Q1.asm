@@ -1,0 +1,26 @@
+
+MOV A, #10H
+
+L1: PUSH ACC
+
+DJNZ ACC, L1
+
+SETB PSW.3
+
+MOV A, @R0
+
+L2: ADD A, R1
+
+MOV B, @R1
+
+SWAP A
+
+MUL AB
+
+L3: ADD A,SP
+
+DA A
+
+ADD A, B
+
+HERE: SJMP HERE

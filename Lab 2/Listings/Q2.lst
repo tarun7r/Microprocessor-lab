@@ -1,0 +1,125 @@
+A51 MACRO ASSEMBLER  Q2                                                                   02/01/2021 15:38:36 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\Q2.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Q2.asm SET(SMALL) DEBUG PRINT(.\Listings\Q2.lst) OBJECT(.\Objects\Q2.ob
+                      j) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1         ORG 0000H
+0000 802E              2         SJMP 30H
+0030                   3         ORG 30H
+                       4     
+                       5         
+                       6             
+                       7             
+                       8             
+                       9             
+                      10             
+                      11             
+                      12             
+                      13             
+                      14             
+                      15             
+0030 756002           16              MOV 60H,#02    ; Order of square matrix
+0033 E560             17              MOV A,60H 
+0035 756101           18              MOV 61H,#01
+0038 756204           19              MOV 62H,#04
+003B 756304           20              MOV 63H,#04    ; Test Inputs
+003E 756403           21              MOV 64H,#03
+                      22              
+                      23             
+                      24              
+                      25              
+                      26             
+0041 B40214           27          CJNE A,#02,matrix3x3
+0044 E562             28              MOV A,62H
+0046 A863             29              MOV R0,63H 
+0048 98               30              SUBB A,R0
+0049 B4005D           31              CJNE A,#00,skip    ; If value stored at A!=#00 move to skip
+                      32              
+004C E562             33              MOV A,62H
+004E A963             34              MOV R1,63H
+0050 99               35              SUBB A,R1
+0051 B40055           36              CJNE A,#00,skip
+0054 D2D5             37              SETB F0
+0056 E560             38              MOV A,60H
+0058                  39              matrix3x3:
+0058 B4031A           40              CJNE A,#03,matrix4x4
+                      41              
+005B E562             42              MOV A,62H
+005D A864             43              MOV R0,64H 
+005F 98               44              SUBB A,R0
+0060 B40046           45              CJNE A,#00,skip
+                      46              
+0063 E563             47              MOV A,63H
+0065 A967             48              MOV R1,67H 
+0067 99               49              SUBB A,R1
+0068 B4003E           50              CJNE A,#00,skip
+                      51              
+006B E566             52              MOV A,66H
+006D AA68             53              MOV R2,68H 
+006F 9A               54              SUBB A,R2
+0070 B40036           55              CJNE A,#00,skip
+                      56              
+0073 D2D5             57              SETB F0
+A51 MACRO ASSEMBLER  Q2                                                                   02/01/2021 15:38:36 PAGE     2
+
+0075                  58              matrix4x4:
+0075 E562             59              MOV A,62H
+0077 A865             60              MOV R0,65H 
+0079 98               61              SUBB A,R0
+007A B4002C           62              CJNE A,#00,skip
+                      63              
+007D E563             64              MOV A,63H
+007F A869             65              MOV R0,69H 
+0081 98               66              SUBB A,R0
+0082 B40024           67              CJNE A,#00,skip
+                      68              
+0085 E564             69              MOV A,64H
+0087 A873             70              MOV R0,73H 
+0089 98               71              SUBB A,R0
+008A B4001C           72              CJNE A,#00,skip
+                      73              
+008D E567             74              MOV A,67H
+008F A870             75              MOV R0,70H 
+0091 98               76              SUBB A,R0
+0092 B40014           77              CJNE A,#00,skip
+                      78              
+0095 E568             79              MOV A,68H
+0097 A874             80              MOV R0,74H 
+0099 98               81              SUBB A,R0
+009A B4000C           82              CJNE A,#00,skip
+                      83              
+009D E572             84              MOV A,72H
+009F A875             85              MOV R0,75H 
+00A1 98               86              SUBB A,R0
+00A2 B40004           87              CJNE A,#00,skip
+                      88              
+00A5 D2D5             89              SETB F0
+00A7 8000             90              JMP FIN
+00A9                  91             skip:
+00A9 80FE             92             FIN: SJMP FIN
+                      93          END
+                                              
+A51 MACRO ASSEMBLER  Q2                                                                   02/01/2021 15:38:36 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+F0 . . . . . . . .  B ADDR   00D0H.5 A   
+FIN. . . . . . . .  C ADDR   00A9H   A   
+MATRIX3X3. . . . .  C ADDR   0058H   A   
+MATRIX4X4. . . . .  C ADDR   0075H   A   
+SKIP . . . . . . .  C ADDR   00A9H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
